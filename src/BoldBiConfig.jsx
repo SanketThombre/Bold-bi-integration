@@ -13,8 +13,8 @@ const DashboardListing = () => {
       if (!isMounted) return;
 
       dashboardRef.current = BoldBI.create({
-        serverUrl: "https://dev.visualdata.ai/bi/site/pandorabox",
-        // siteIdentifier: "pandorabox",
+        serverUrl: "https://dev.visualdata.ai/bi/",
+        siteIdentifier: "pandorabox",
 
         dashboardId: "b93ef719-fa67-4c61-9156-8e346c78a0d1",
 
