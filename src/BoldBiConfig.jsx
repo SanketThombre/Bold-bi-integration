@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 
 const DashboardListing = () => {
   const containerRef = useRef(null);
@@ -13,16 +13,16 @@ const DashboardListing = () => {
       if (!isMounted) return;
 
       dashboardRef.current = BoldBI.create({
-        serverUrl: "https://dev.visualdata.ai/bi/site/pandorabox", // ⚠️ same as your code
-        // siteIdentifier: 'pandorabox',
+        serverUrl: "https://dev.visualdata.ai/bi/site/pandorabox",
+        // siteIdentifier: "pandorabox",
 
         dashboardId: "b93ef719-fa67-4c61-9156-8e346c78a0d1",
 
         embedContainerId: "dashboard",
         embedType: BoldBI.EmbedType.Component,
 
-        environment: "onpremise", // ⚠️ unchanged (even though invalid)
-        // environment: 'enterprise',
+        environment: "onpremise",
+        // environment: "enterprise",
 
         authorizationServer: {
           url: "https://dev-sutradhar-be.wcms.cloud/bold-bi/auth-server",
@@ -40,7 +40,7 @@ const DashboardListing = () => {
     return () => {
       isMounted = false;
 
-      // ⚠️ DO NOT call destroy() – SDK bug
+      // Do NOT call destroy() due to SDK issue
       dashboardRef.current = null;
 
       const container = document.getElementById("dashboard");
@@ -53,7 +53,7 @@ const DashboardListing = () => {
   return (
     <div id="DashboardListing">
       <div id="viewer-section">
-        <div id="dashboard" ref={containerRef} />
+        <div id="dashboard" ref={containerRef}></div>
       </div>
     </div>
   );
